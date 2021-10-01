@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  h1 {
+    margin-right: 1em;
+    flex: auto;
+  }
+  a {
+    margin-left: 1em;
+    flex: auto;
+    color: blue;
+    &:hover {
+      color: darken(blue, 25%);
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+}
+
+section {
+  display: flex;
+}
