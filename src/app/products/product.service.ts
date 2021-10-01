@@ -26,6 +26,6 @@ export class ProductService {
       mockProducts.filter(
         (p) => p.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
       )
-    );
+    ).pipe(delay(1000));
   }
 }
