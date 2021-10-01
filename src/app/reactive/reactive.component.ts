@@ -22,7 +22,7 @@ export class ReactiveComponent implements OnInit {
   products$: Observable<Product[]> = merge(
     this.productService.getProducts(),
     this.search$.pipe(switchMap((query) => this.productService.query(query))),
-    this.searchEmpty$.pipe(switchMap((p) => this.productService.getProducts()))
+    this.searchEmpty$.pipe(switchMap(() => this.productService.getProducts()))
   );
 
   constructor(private productService: ProductService) {}
