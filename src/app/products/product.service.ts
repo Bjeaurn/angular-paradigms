@@ -10,6 +10,7 @@ const mockProducts: Product[] = [
   { name: 'RxJS for beginners', available: 25, price: 49.95 },
   { name: 'Angular for beginners', available: 24, price: 29.95 },
   { name: 'React for beginners', available: 18, price: 59.95 },
+  { name: 'Reactive for beginners', available: 18, price: 59.95 },
 ];
 
 @Injectable({
@@ -18,5 +19,13 @@ const mockProducts: Product[] = [
 export class ProductService {
   getProducts(): Observable<Product[]> {
     return of(mockProducts).pipe(delay(1000));
+  }
+
+  query(searchQuery: string) {
+    return of(
+      mockProducts.filter(
+        (p) => p.name.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1
+      )
+    );
   }
 }
